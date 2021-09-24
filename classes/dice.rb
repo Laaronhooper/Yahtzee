@@ -19,14 +19,3 @@ dicerolls << dice1.roll << dice2.roll << dice3.roll << dice4.roll << dice5.roll
 p dicerolls
 puts dicerolls.sum
 
-class Player 
-    attr_accessor :name
-    def initialize(name)
-        @name = name
-        @valid = false
-    end
-    def name=(name)
-        @name = name
-        @valid = !(@name.nil? || @name.empty?)
-    end 
-end
