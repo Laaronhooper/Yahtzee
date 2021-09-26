@@ -1,6 +1,7 @@
-class Player 
+require './models/active_record.rb'
+class Player < ActiveRecord
     attr_accessor :name
-    def initialize(name)
+    def initialize(name: '')
         @name = name
         @valid = false
     end

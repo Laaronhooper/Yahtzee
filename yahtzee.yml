@@ -1,0 +1,6 @@
+---
+- !ruby/object:Player
+  name: Luke
+  valid: true
+  id: 1
+

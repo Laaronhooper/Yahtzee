@@ -1,26 +1,17 @@
-def play
-    print "Would you like to play again? [y/n]: "
-    case gets.chomp.downcase.strip
-    when 'y', 'yes'
-        puts 'I play' # Game.play
-    when 'n','no'
-        puts "Come back when you'd like to play!"
-    end 
-end
+require 'tty-progressbar'
+require './controllers/player_controller.rb'
+require 'tty-font'
 
-#play
+font = TTY::Font.new(:DOOM)
+player_controller = PlayerController.new
 
-def player_name
-    print "What's you're name? "
-    input_playername = gets.chomp.downcase.strip
-    puts "Your name is #{input_playername}, Correct?" 
+# buid this out into a highscore? arcadia
+begin
+    puts "Would you like to play: \n#{font.write("YAHTZEE")}(y/n): "
     case input = gets.chomp.downcase.strip
-    when 'y', 'yes'
-        puts "Ok, lets go "
-    when 'n','no'
-        puts "Ok, let's try that again."
-        self.player_name
-    end  
-end
+    when 'y'
+        puts "What is your name?"
+        player_controller.new
+    end
+end until ['n','quit', 'q'].include? input
 
-player_name
