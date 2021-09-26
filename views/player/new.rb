@@ -1,7 +1,6 @@
 module Views
     module Player
         def self.new(player)
-            puts "New Player!"
             print "Name: "
             player.name = gets.chomp.strip
         end

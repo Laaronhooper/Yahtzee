@@ -3,4 +3,11 @@
   name: Luke
   valid: true
   id: 1
-
+- !ruby/object:Player
+  name: Luke
+  valid: true
+  id: 2
+- !ruby/object:Player
+  name: Bob
+  valid: true
+  id: 3
