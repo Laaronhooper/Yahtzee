@@ -1,16 +1,19 @@
-class Scorecard 
-    attr_accessor :name, 
-    def initialize(name)
+class Scorecard < Players
+    attr_accessor :, 
+    def initialize()
         @name = name
         
     end
     def players(name)
         @name = name
-    end 
+    end
+
     def challenges
     end
+
     def instructions
     end
+
     def scores
     end
 end

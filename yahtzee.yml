@@ -11,3 +11,19 @@
   name: Bob
   valid: true
   id: 3
+- !ruby/object:Player
+  name: Deven
+  valid: true
+  id: 4
+- !ruby/object:Player
+  name: Eric
+  valid: true
+  id: 5
+- !ruby/object:Player
+  name: Luke
+  valid: true
+  id: 6
+- !ruby/object:Player
+  name: Need
+  valid: true
+  id: 7
