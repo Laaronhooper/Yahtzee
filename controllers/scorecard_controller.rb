@@ -12,11 +12,6 @@ class ScorecardController
         Views::Scorecard.index(scorecards)
     end
 
-    def show(id) 
-        scorecard = Scorecard.find(id)
-        Views::Scorecard.show scorecard
-    end
-
     def new
         scorecard = Scorecard.new
         Views::Scorecard.new scorecard
