@@ -9,3 +9,4 @@ gem 'games_dice'
 gem "tty-table"
 gem "tty-progressbar"
 gem 'tty-font'
+gem "tty-prompt"

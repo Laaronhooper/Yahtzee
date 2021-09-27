@@ -23,7 +23,6 @@ def roll_of_dice
     end
     roll_result
     p roll_result
-    reroll?(roll_result)
 end
 
 def reroll?(roll_result)
@@ -37,7 +36,7 @@ def reroll?(roll_result)
         select_dice(roll_result)
     elsif input == 'n'
         puts "Your roll was"
-        p turn
+        print roll_of_dice
     else 
         puts "y or n only please"
         # reroll?
@@ -92,3 +91,8 @@ def turn2(roll_result)
     print "#{roll_result}\n"
     reroll?(roll_result)
 end
+
+
+roll_of_dice
+
+
