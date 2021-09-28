@@ -1,40 +1,54 @@
 require 'games_dice'
 require 'tty-prompt'
 
+class Scorecard
+    attr_accessor :ones, :twos, :threes, :fours, :fives, :sixes, :three_of_a_kind, :four_of_a_kind, :full_house, :small_straight, :large_straight, :yahtzee, :chance   
+    def initialize
+        @ones= nil
+        @twos= nil
+        @threes= nil
+        @fours= nil
+        @fives= nil
+        @sixes= nil
+        @three_of_a_kind= nil
+        @four_of_a_kind= nil
+        @full_house= nil
+        @small_straight= nil
+        @large_straight= nil
+        @yahtzee= nil
+        @chance= nil
+    end
+end   
 
 
-P1SCORECARD = {
-    ones: nil,
-    twos: nil,
-    threes: nil,
-    fours: nil,
-    fives: nil,
-    sixes: nil,
-    three_of_a_kind: nil,
-    four_of_a_kind: nil,
-    full_house: nil,
-    small_straight: nil,
-    large_straight: nil,
-    yahtzee: nil,
-    chance: nil
-}
+class Player < Scorecard
+    attr_accessor :name,:scorecard
+    def initialize(name: '')
+        @name = name
+        @valid = false
+        @scorecard = scorecard
+    end
+    def name=(name)
+        @name = name
+        @valid = !(@name.nil? || @name.empty?)
+    end 
+end
 
-
-P2SCORECARD = {
-    ones: nil,
-    twos: nil,
-    threes: nil,
-    fours: nil,
-    fives: nil,
-    sixes: nil,
-    three_of_a_kind: nil,
-    four_of_a_kind: nil,
-    full_house: nil,
-    small_straight: nil,
-    large_straight: nil,
-    yahtzee: nil,
-    chance: nil
-}
+# P2SCORECARD = {
+#     ones: nil,
+#     twos: nil,
+#     threes: nil,
+#     fours: nil,
+#     fives: nil,
+#     sixes: nil,
+#     three_of_a_kind: nil,
+#     four_of_a_kind: nil,
+#     full_house: nil,
+#     small_straight: nil,
+#     large_straight: nil,
+#     yahtzee: nil,
+#     chance: nil
+# }
 
 
 #roll is 1 dice with 6 sides rolled with the result provided
@@ -166,7 +180,7 @@ def where_to_score(final_roll_result)
     end
 end
 
-def ones(final_roll_result,)
+def ones(final_roll_result)
     to_score = final_roll_result.keep_if{|a| a == 1}.sum
     P1SCORECARD[:ones] = to_score
     p P1SCORECARD
@@ -203,4 +217,6 @@ def sixes(final_roll_result)
 end
 
 
-initial_roll
+# initial_roll
+
+Luke = Player.new
