@@ -5,6 +5,13 @@
 # 4. edit/update id updateview equiv
 # 5. destroy id deleteview equiv
 
+# require "tty-prompt"
+
+# prompt = TTY::Prompt.new
+
+# choices = %w(ones twos threes fours fives sixes three_of_a_kind four_of_a_kind full_house small_straight large_straight yahtzee chance)
+# prompt.multi_select("Select drinks?", choices)
+
 
 class ScorecardController
     def index
@@ -15,6 +22,6 @@ class ScorecardController
     def new
         scorecard = Scorecard.new
         Views::Scorecard.new scorecard
-        scorecard.save
+        
     end
 end

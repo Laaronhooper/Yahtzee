@@ -1,5 +1,5 @@
 require 'games_dice'
-
+require 'tty-prompt'
 
 #roll is 1 dice with 6 sides rolled with the result provided
 def roll_of_die
@@ -8,17 +8,31 @@ def roll_of_die
     dice.result
 end 
 
-# turn must take in a optional argument 
-# def(*roll_result)
-# roll_result = nil || *roll_result.take out of the array and place into [a,b,c,d]
-# if 
+def check_empty(roll_result)
+    puts "called meth"
+    i = roll_result.length
+    while i < 0
+        roll_result = []
+        i += 1
+    end
+    roll_result
+end
 
-def roll_of_dice
+# def dramatic_effect
+#     sleep 0.5
+#     print"."
+#     sleep 0.5
+#     print "."
+#     sleep 0.5
+#     print ".\n"
+#     sleep 0.2
+# end
+
+def initial_roll
+    i =0
     roll_result = []
-    i = 0
-    # i ||= (0 || *args.length) 
     while i < 5
-        roll_result.push(roll_of_die)
+        roll_result << roll_of_die
         i += 1
     end
     roll_result
@@ -26,22 +40,39 @@ def roll_of_dice
     reroll?(roll_result)
 end
 
+
+def roll_of_dice(roll_result)
+    p roll_result.inspect 
+    roll_result = check_empty(roll_result)
+    p roll_result.inspect
+    i = roll_result.length
+    p i.inspect 
+    p i
+    while i < 5
+        roll_result << roll_of_die
+        i += 1
+    end
+    # dramatic_effect 
+    roll_result
+    p roll_result
+    reroll?(roll_result)
+end
+
+
 def reroll?(roll_result)
-    # takes an arry
-    # if array.length < 5
     puts "Would you like to reroll any dice? (y/n)"
-    input = gets.chomp.strip.downcase
-    # while better
-    if input == 'y'
-        puts "Let's do it"
-        select_dice(roll_result)
-    elsif input == 'n'
-        puts "Your roll was"
-        p turn
-    else 
-        puts "y or n only please"
-        # reroll?
-    end    
+    while true
+        case gets.chomp.strip.downcase
+        when 'y'
+            puts "Let's do it"
+            select_dice(roll_result)
+        when 'n'
+            puts "Your roll was"
+            print roll_result
+            final_roll_result(roll_result)
+            break
+        end 
+    end
 end
 
 def select_dice(roll_result)
@@ -59,36 +90,12 @@ def select_dice(roll_result)
     puts "You have these dice left #{roll_result}"
     puts "lets role again"
     p roll_result
-    turn2(roll_result)
+    roll_of_dice(roll_result)
 end
 
-def turn2(roll_result)
-    new_result = roll_result
-    i = roll_result.length.to_i
-    p i
-    while i < 5
-        new_result.push(roll_of_die)
-        i += 1
-    end
-    p new_result
-    reroll?(new_result)
-end
+def final_roll_result(roll_result)
+    puts "Your final roll is #{roll_result}"
+    roll_result 
+end    
 
-def turn2(roll_result)
-    roll_result
-    i = roll_result.length.to_i
-    p i
-    while i < 5
-        roll_result.push(roll_of_die)
-        i += 1
-    end
-    sleep 0.5
-    print"."
-    sleep 0.5
-    print "."
-    sleep 0.5
-    print ".\n"
-    sleep 0.2
-    print "#{roll_result}\n"
-    reroll?(roll_result)
-end
+initial_roll
