@@ -9,7 +9,6 @@ def roll_of_die
 end 
 
 def check_empty(roll_result)
-    puts "called meth"
     i = roll_result.length
     while i < 0
         roll_result = []
@@ -18,15 +17,15 @@ def check_empty(roll_result)
     roll_result
 end
 
-# def dramatic_effect
-#     sleep 0.5
-#     print"."
-#     sleep 0.5
-#     print "."
-#     sleep 0.5
-#     print ".\n"
-#     sleep 0.2
-# end
+def dramatic_effect
+    sleep 0.5
+    print"."
+    sleep 0.5
+    print "."
+    sleep 0.5
+    print ".\n"
+    sleep 0.2
+end
 
 def initial_roll
     i =0
@@ -97,5 +96,23 @@ def final_roll_result(roll_result)
     puts "Your final roll is #{roll_result}"
     roll_result 
 end    
+
+
+
+
+SCORECARD = {
+    ones: nil,
+    twos: nil,
+    threes: nil,
+    fours: nil,
+    fives: nil,
+    sixes: nil,
+    three_of_a_kind: nil,
+    four_of_a_kind: nil,
+    small_straight: nil,
+    large_straight: nil,
+    yahtzee: nil,
+    chance: nil
+}
 
 initial_roll

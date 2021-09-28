@@ -16,3 +16,11 @@ class PlayerController
     end
 end
 
+
+# Get rid of active record
+# strip it back
+# how to grab p1 and 2
+# turn p1
+# assign t scorecard
+# turn p2
+# self responsibility

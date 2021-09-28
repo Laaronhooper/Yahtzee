@@ -4,10 +4,6 @@ class Scorecard < Players
         @name = name
         
     end
-    def players(name)
-        @name = name
-    end
-
     # def challenges
     # end
 
