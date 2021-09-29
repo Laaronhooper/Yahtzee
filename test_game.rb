@@ -1,8 +1,8 @@
 require 'games_dice'
 require 'tty-prompt'
 
-require_relative './models/scorecard.rb'
-require_relative './models/player.rb'
+require_relative './models/Scorecard.rb'
+require_relative './models/Player.rb'
 
 #roll is 1 dice with 6 sides rolled with the result provided
 def roll_of_die
