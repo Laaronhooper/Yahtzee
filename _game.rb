@@ -163,7 +163,7 @@ def where_to_score(final_roll_result)
     end
 end
 
-def ones(final_roll_result,)
+def ones(final_roll_result)
     to_score = final_roll_result.keep_if{|a| a == 1}.sum
     P1SCORECARD[:ones] = to_score
     p P1SCORECARD

@@ -12,7 +12,8 @@ begin
     case input = gets.chomp.downcase.strip
     when 'p'
         puts "What is your name player 1?"
-        player_controller.new
+        input = gets.chomp.upcase
+        p input
         puts "What is your name player 2?"
         player_controller.new 
         puts "Get ready to yahtzee!"
