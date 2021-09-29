@@ -3,13 +3,49 @@ require 'tty-prompt'
 
 require_relative './models/Scorecard.rb'
 require_relative './models/Player.rb'
+require_relative './models/Game.rb'
+require_relative './models/Dice.rb'
 
-#roll is 1 dice with 6 sides rolled with the result provided
-def roll_of_die
-    dice = GamesDice.create '1d6'
-    dice.roll
-    dice.result
-end 
+player1 = Player.new('luke')
+player2 = Player.new('sam')
+game = Game.new(player1,player2)
+
+
+def ones(final_roll_result)
+    to_score = final_roll_result.keep_if{|a| a == 1}.sum
+    game.current_player.ones = to_score
+    p luke.sum
+end
+
+def twos(final_roll_result)
+    to_score = final_roll_result.keep_if{|a| a == 2}.sum
+    luke.two = to_score
+    p luke.sum
+end
+
+def threes(final_roll_result)
+    to_score = final_roll_result.keep_if{|a| a == 3}.sum
+    P1SCORECARD[:threes] = to_score
+    p P1SCORECARD
+end
+
+def fours(final_roll_result)
+    to_score = final_roll_result.keep_if{|a| a == 4}.sum
+    P1SCORECARD[:fours] = to_score
+    p P1SCORECARD 
+end
+
+def fives(final_roll_result)
+    to_score = final_roll_result.keep_if { |a| a == 5}.sum
+    P1SCORECARD[:fives] = to_score
+    p P1SCORECARD
+end
+
+def sixes(final_roll_result)
+    to_score = final_roll_result.keep_if { |a| a == 6}.sum
+    P1SCORECARD[:sixes] = to_score
+    p P1SCORECARD 
+end
 
 def check_empty(roll_result)
     i = roll_result.length
@@ -31,10 +67,11 @@ def dramatic_effect
 end
 
 def initial_roll
+    dice = Dice.new
     i =0
     roll_result = []
     while i < 5
-        roll_result << roll_of_die
+        roll_result << dice.roll_of_die
         i += 1
     end
     roll_result
@@ -44,6 +81,7 @@ end
 
 
 def roll_of_dice(roll_result)
+    dice = Dice.new
     p roll_result.inspect 
     roll_result = check_empty(roll_result)
     p roll_result.inspect
@@ -51,7 +89,7 @@ def roll_of_dice(roll_result)
     p i.inspect 
     p i
     while i < 5
-        roll_result << roll_of_die
+        roll_result << dice.roll_of_die
         i += 1
     end
     # dramatic_effect 
@@ -133,43 +171,21 @@ def where_to_score(final_roll_result)
     end
 end
 
-def ones(final_roll_result)
-    luke = Player.new
-    to_score = final_roll_result.keep_if{|a| a == 1}.sum
-    luke.ones = to_score
-    p luke.sum
-end
-
-def twos(final_roll_result)
-    to_score = final_roll_result.keep_if{|a| a == 2}.sum
-    luke.two = to_score
-    p luke.sum
-end
-
-def threes(final_roll_result)
-    to_score = final_roll_result.keep_if{|a| a == 3}.sum
-    P1SCORECARD[:threes] = to_score
-    p P1SCORECARD
-end
-
-def fours(final_roll_result)
-    to_score = final_roll_result.keep_if{|a| a == 4}.sum
-    P1SCORECARD[:fours] = to_score
-    p P1SCORECARD 
-end
-
-def fives(final_roll_result)
-    to_score = final_roll_result.keep_if { |a| a == 5}.sum
-    P1SCORECARD[:fives] = to_score
-    p P1SCORECARD
-end
-
-def sixes(final_roll_result)
-    to_score = final_roll_result.keep_if { |a| a == 6}.sum
-    P1SCORECARD[:sixes] = to_score
-    p P1SCORECARD 
-end
-
-
 initial_roll
+
+def turn
+    i = 0
+    while i < 26
+    initial_roll
+    game.change_player.name
+    end
+end
+
+turn
+
+# game.change_player.name
+# p game.current_player.name
+# game.change_player.name
+# p game.current_player.name
+# p dice.roll_of_die
 

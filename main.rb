@@ -21,9 +21,6 @@ begin
         player2 = Player.new(name:name2) 
         puts "Thanks #{name2}"
         game = Game.new(player1, player2)
-
-
-        puts game.change_player.name
     end
 
 end until ['n','quit', 'q'].include? input
