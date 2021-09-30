@@ -1,10 +1,25 @@
-require_relative './Scorecard.rb'
 
-class Player < Scorecard
-    attr_accessor :name
+class Player
+    attr_accessor :ones, :twos, :threes, :fours, :fives, :sixes, :three_of_a_kind, :four_of_a_kind, :full_house, :small_straight, :large_straight, :yahtzee, :chance
+    attr_reader :sum
     def initialize(name)
-        super()
         @name = name
+        @ones = 0
+        @twos = 0
+        @threes = 0
+        @fours = 0
+        @fives = 0
+        @sixes = 0
+        @three_of_a_kind = 0
+        @four_of_a_kind = 0
+        @full_house = 0
+        @small_straight = 0
+        @large_straight = 0
+        @yahtzee = 0
+        @chance = 0
    end 
+   def sum
+    @sum = @ones + @twos + @threes + @fours + @fives + @sixes + @three_of_a_kind + @four_of_a_kind + @full_house + @small_straight + @large_straight + @yahtzee + @chance
+   end
 end
 
