@@ -1,11 +1,12 @@
-require_relative 'Player.rb'
 class Scorecard
+    attr_reader :index, :targets, :instructions
     def initialize
         
     end
     def index
         @index = %w(1 2 3 4 5 6 7 8 9 10 11 12 13 14)
     end
+    
     def targets
         @index = [
             "ones",

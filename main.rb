@@ -4,7 +4,6 @@ require 'tty-font'
 require './models/Player.rb'
 require './models/Game.rb'
 font = TTY::Font.new(:DOOM)
-# player_controller = PlayerController.new
 
 # buid this out into a highscore? arcadia
 begin
