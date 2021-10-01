@@ -22,16 +22,15 @@ class Die
         end 
         @current_rolls = current_rolls.flatten
     end
-    def drop
-        input = gets.chomp.to_i - 1
+    def drop(input)
         while true
             if input.between?(0,5)
                 @current_rolls.delete_at(input)
                 break
-            else
-                puts "a number between 1 and 6 please"
             end
         end
         @current_rolls
     end
+    
+
 end

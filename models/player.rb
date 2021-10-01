@@ -1,38 +1,34 @@
-require_relative 'scores.rb'
+require_relative 'score.rb'
+require 'forwardable'
 class Player
+    extend Forwardable
+    def_delegators :@score, :ones, :twos, :threes, :fours, :fives, :sixes
     attr_accessor :name
     def initialize(name)
         @name = name.capitalize
         @score = Score.new
-    # pass dice
-    #delgated to instance of score
-    # score delegates back
-    # accept numerical value of score
+        @dice = Die.new
     end
     def score!(current_rolls,input)
         @score.where_to_score(current_rolls, input)
     end
-    # take 
     def score
         @score.sum
     end
-    def ones
-        @score.ones
+    def roll
+        @dice.roll
     end
-    def twos
-        @score.twos
+    def rolls
+        @dice.rolls
     end
-    def threes
-        @score.threes
-    end 
-    def fours
-        @score.fours
-    end 
-    def fives
-        @score.fives
-    end 
-    def sixes
-        @score.sixes
+    def reroll
+        @dice.reroll
+    end
+    def drop
+        @dice.drop
+    end
+    
+    def current_rolls
+        @dice.current_rolls
     end 
 end
-
