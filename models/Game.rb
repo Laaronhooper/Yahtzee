@@ -7,7 +7,9 @@ class Game
         @players = [p1,p2]
         @current_index = 0
         @current_player = @players[@current_index]
+        @other_player = @players[@current_index + 1]
         @turns = 0
+
     end
     def change_player
         if @current_player == @players[0]
@@ -19,8 +21,6 @@ class Game
     def turn
         i = 0
         while i < 26
-        initial_roll
-        puts "next player"
         game.change_player.name
         end
     end

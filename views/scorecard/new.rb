@@ -1,35 +1,24 @@
-require 'tty-prompt'
 require 'tty-table'
+
 module Views
     module Scorecard
-        def self.new(scorecard)
-            # What happens if scorecard.nil? Need a guard?
-            headers = %w[Challenges Instructions Player_1 Player_2]
-            attrs = attribute_rows_for scorecard
-            table = TTY::Table.new headers, attrs
-            puts table.render :ascii
-        end
-
-        def self.attribute_rows_for(scorecard)
-            rows = []
-            rows << ['Players', scorecard.players] 
-            # rows << ['Ones', scorecard.ones]
-            # rows << ['Twos', scorecard.twos]
-            # rows << ['Threes', scorecard.threes]
-            # rows << ['Fours', scorecard.fours]
-            # rows << ['Fives', scorecard.fives]
-            # rows << ['Sixes', scorecard.sixes]
-            # rows << ['Three of a kind', scorecard.three_of_a_kind]
-            # rows << ['Fours of a kind', scorecard.four_of_a_kind]
-            # rows << ['Full house', scorecard.full_house]
-            # rows << ['Small straight', scorecard.small_straight]
-            # rows << ['Large straight', scorecard.large_straight]
-            # rows << ['Yahtzee', scorecard.yahtzee]
-            # rows << ['Chance', scorecard.chance]
-            # rows << ['Sum', scorecard.sum]
+        def self.scorecard(scores)
+            table = TTY::Table.new(['index',"Challenges",scores.current_player.name, scores.other_player.name],[])
+            table << ["1","Ones",scores.current_player.ones, '1']
+            # table << ["2",'Twos',scores.twos]
+            # table << ["3",'Threes',scores.threes]
+            # table << ["4",'Fours',scores.fours]
+            # table << ["5",'Fives',scores.fives]
+            # table << ["6",'Sixes',scores.sixes]
+            # table << ["7",'Three of a kind',scores.three_of_a_kind]
+            # table << ["8",'Fours of a kind',scores.four_of_a_kind]
+            # table << ["9",'Full house',scores.full_house]
+            # table << ["10",'Small straight',scores.small_straight]
+            # table << ["11",'Large straight',scores.large_straight]
+            # table << ["12",'Yahtzee',scores.yahtzee]
+            # table << ["13",'Chance',scores.chance]
+            # table << ["14",'Sum',scores.sum]
+            puts table.render :ascii  
         end
     end
 end
-
-# prompt = TTY::Prompt.new
-# prompt.select("Where would you like to allocate your turn?", %w(ones twos threes fours fives sixes three_of_a_kind four_of_a_kind full_house small_straight large_straight yahtzee chance))
