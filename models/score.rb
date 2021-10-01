@@ -1,6 +1,5 @@
-class Scores
+class Score
     attr_accessor :ones, :twos, :threes, :fours, :fives, :sixes, :three_of_a_kind, :four_of_a_kind, :full_house, :small_straight, :large_straight, :yahtzee, :chance
-    attr_reader :sum
     def initialize
         @ones = 0
         @twos = 0
@@ -16,59 +15,55 @@ class Scores
         @yahtzee = 0
         @chance = 0 
     end
-    def ones(dice)
-        @ones = dice.keep_if{|a| a == 1}.sum
+    def ones=(dice)
+        @ones = dice.select{|a| a == 1}.sum
     end
-    def twos(dice)
+    def twos=(dice)
         @twos = dice.keep_if{|a| a == 2}.sum
     end
-    def threes(dice)
+    def threes=(dice)
         @threes = dice.keep_if{|a| a == 3}.sum
     end
-    def fours(dice)
+    def fours=(dice)
         @fours = dice.keep_if{|a| a == 4}.sum
     end
-    def fives(dice)
+    def fives=(dice)
         @fives = dice.keep_if{|a| a == 5}.sum
     end
-    def sixes(dice)
+    def sixes=(dice)
         @sixes = dice.keep_if{|a| a == 6}.sum
     end
     def sum
-        @sum = @ones + @twos + @threes + @fours + @fives + @sixes + @three_of_a_kind + @four_of_a_kind + @full_house + @small_straight + @large_straight + @yahtzee + @chance
+        @ones + @twos + @threes + @fours + @fives + @sixes + @three_of_a_kind + @four_of_a_kind + @full_house + @small_straight + @large_straight + @yahtzee + @chance
     end
-    def where_to_score(dice)
-        # passing the 
-        puts "Where would you like to score your roll?"
-        case input = gets.chomp.to_i
+    def where_to_score(current_roll, input)
+        case input 
         when 1
-            ones(dice)
+            self.ones = current_roll
         when 2
-            twos(dice)
+            self.twos = current_roll 
         when 3
-            threes(dice)
+            self.threes = current_roll 
         when 4
-            fours(dice)
+            self.fours = current_roll 
         when 5
-            fives(dice)
+            self.fives = current_roll 
         when 6
-            sixes(dice)
+            self.sixes = current_roll 
         when 7
-            three_of_a_kind(dice)
+            self.three_of_a_kind = current_roll 
         when 8
-            four_of_a_kind(dice)
+            self.four_of_a_kind = current_roll 
         when 9
-            full_house(dice)
+            self.full_house = current_roll 
         when 10
-            small_straight(dice)
+            self.small_straight = current_roll 
         when 11
-            large_straight(dice)
+            self.large_straight = current_roll 
         when 12
-            yahtzee(dice)
+            self.yahtzee = current_roll 
         when 13
-            chance(dice)
-        else
-            puts "error"
+            self.chance = current_roll 
         end
     end
 end

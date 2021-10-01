@@ -1,0 +1,37 @@
+class Die
+    attr_reader :roll, :current_roll, :current_rolls
+    def initialize
+        @roll
+        @rolls
+        @current_rolls = [] 
+    end
+    def roll
+        @rolls = rand(6) + 1
+    end
+
+    def rolls
+        @rolls = 5.times.map{rand(6) + 1}
+        current_rolls << @rolls
+        @current_rolls = current_rolls.flatten
+    end
+    def reroll
+        i = @current_rolls.length
+        while i < 5
+            current_rolls << self.roll
+            i += 1
+        end 
+        @current_rolls = current_rolls.flatten
+    end
+    def drop
+        input = gets.chomp.to_i - 1
+        while true
+            if input.between?(0,5)
+                @current_rolls.delete_at(input)
+                break
+            else
+                puts "a number between 1 and 6 please"
+            end
+        end
+        @current_rolls
+    end
+end
