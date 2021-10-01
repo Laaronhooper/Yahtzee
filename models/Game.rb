@@ -6,9 +6,10 @@ class Game
     def initialize(p1,p2)
         @players = [p1,p2]
         @current_index = 0
+        @other_index = -1
         @current_player = @players[@current_index]
-        @other_player = @players[@current_index + 1]
-        @turns = 0
+        @other_player = @players[@other_index]
+        
 
     end
     def change_player

@@ -31,14 +31,7 @@ class Die
         end
         @current_rolls
     end
-    def drop_all(input)
-        while true
-            if input.between?(0,5)
-                @current_rolls.delete_at(input)
-                break
-            end
-        end
-        @current_rolls
+    def drop_all
+        @current_rolls = current_rolls.clear
     end
-
 end

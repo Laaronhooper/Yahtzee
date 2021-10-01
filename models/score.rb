@@ -60,7 +60,7 @@ class Score
     end
 
     def chance=(dice)
-        sum(dice)
+        dice.inject(0, :+)
     end
 
     def sum

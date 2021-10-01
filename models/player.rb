@@ -24,6 +24,9 @@ class Player
     def drop(input)
         @dice.drop(input)
     end
+    def drop_all
+        @dice.drop_all
+    end
     def current_rolls
         @dice.current_rolls
     end 
