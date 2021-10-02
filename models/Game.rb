@@ -1,4 +1,3 @@
-require_relative 'dice.rb'
 require_relative 'player.rb'
 
 class Game 

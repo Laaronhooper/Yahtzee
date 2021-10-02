@@ -1,13 +1,9 @@
 require 'games_dice'
 require 'tty-prompt'
 require 'tty-table'
-
 require './views/scorecard/new.rb'
-
-require './models/scorecard.rb'
 require './models/player.rb'
 require './models/game.rb'
-require './models/dice.rb'
 require './models/die.rb'
 
 
