@@ -5,16 +5,15 @@
 # 4. edit/update id updateview equiv
 # 5. destroy id deleteview equiv
 
-require './controllers/player_controller.rb'
-require './views/player/new.rb'
-require './models/player.rb'
-class PlayerController
-    def new
-        player = Player.new
-        Views::Player.new player
-        player.save
-    end
-end
+# require './controllers/player_controller.rb'
+# require './views/player/new.rb'
+# require './models/player.rb'
+# class PlayerController
+#     def new
+#         player = Player.new
+#         Views::Player.new player
+#     end
+# end
 
 
 # Get rid of active record

@@ -1,12 +1,14 @@
 require 'games_dice'
 require 'tty-prompt'
+require 'tty-font'
 require 'tty-table'
 require './views/scorecard/new.rb'
 require './models/player.rb'
 require './models/game.rb'
 require './models/die.rb'
+font = TTY::Font.new(:DOOM
 
-
+puts "Welcome to \n#{font.write("YAHTZEE")}"
 print "Enter Player 1 name: "
 name1 = gets.chomp.to_s
 print "Enter Player 2 name: "
