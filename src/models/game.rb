@@ -6,8 +6,8 @@ class Game
         @players = [p1,p2]
         @current_index = 0
         @current_player = @players[@current_index]
+        @other_player = @players[@current_index + 1]
         
-
     end
     def change_player
         if @current_player == @players[0]
